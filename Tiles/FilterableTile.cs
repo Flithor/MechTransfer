@@ -18,6 +18,10 @@ namespace MechTransfer.Tiles
                     tileEntity.SyncData();
                 }
             }
+            else if(Main.LocalPlayer.HeldItem.type == mod.GetItem<Items.ProControlCircuit>().item.type)
+            {
+
+            }
         }
 
         public override void MouseOverFar(int i, int j)
