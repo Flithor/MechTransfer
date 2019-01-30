@@ -1,4 +1,5 @@
 ﻿using MechTransfer.Items;
+using MechTransfer.Tiles.TileInterface;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
@@ -10,11 +11,14 @@ using Terraria.ObjectData;
 
 namespace MechTransfer.Tiles
 {
-    public class TransferFilterTile : FilterableTile<TransferFilterTileEntity>, ITransferPassthrough
+    public class TransferFilterTile : FilterableTile<TransferFilterTileEntity>, ITransferPassthrough, IProUpgradable
     {
         private Dictionary<int, ItemFilterItem> filterItems = new Dictionary<int, ItemFilterItem>();
 
         private HashSet<int> Bags;
+
+        public byte CircuitCount { get; set; }
+        public byte CircuitMax { get; set; }
 
         public override void SetDefaults()
         {
@@ -248,6 +252,15 @@ namespace MechTransfer.Tiles
                 }
             }
             ErrorLogger.Log("---END FILTER LISTING---");
+        }
+
+        public void ProUpgraded()
+        {
+            //throw new System.NotImplementedException();
+        }
+        public void ExtraBehavior()
+        {
+
         }
     }
 }
